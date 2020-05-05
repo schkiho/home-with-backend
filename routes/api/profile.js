@@ -50,6 +50,7 @@ router.post(
 router.get('/', async (req, res) => {
   try {
     const profiles = await Profile.find().populate('user', ['email']);
+    console.log(profiles);
     res.status(200).json(profiles);
   } catch (err) {
     console.error(err.message);
