@@ -36,7 +36,6 @@ router.post(
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
-      // Create
       profile = new Profile(profileFields);
 
       await profile.save();
