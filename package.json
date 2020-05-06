@@ -20,6 +20,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.12",
     "node-sass": "^4.14.1",
+    "react-phone-input-2": "^2.13.3",
     "request": "^2.88.2"
   },
   "devDependencies": {
