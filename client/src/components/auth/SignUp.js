@@ -70,7 +70,7 @@ const SignUp = ({ setAlert, signUp, isAuthenticated }) => {
         </div>
       </form>
       <p className='my-1'>
-        Already have an account? <Link to='/login'>Sign In</Link>
+        Already have an account? <Link to='/signin'>Sign In</Link>
       </p>
     </div>
   );

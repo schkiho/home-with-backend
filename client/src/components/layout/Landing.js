@@ -15,6 +15,9 @@ const Landing = () => {
           <i className='fas fa-user text-white' /> Create Your Account
         </Link>
       </div>
+      <p className='my-4'>
+        Already have an account? <Link to='/signin'>Sign In</Link>
+      </p>
     </div>
   );
 };
