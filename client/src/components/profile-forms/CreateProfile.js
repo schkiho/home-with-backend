@@ -18,7 +18,7 @@ const CreateProfile = (props) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
 
   return (
-    <div className='container'>
+    <div className='container create-profile-container'>
       <h1 className='large text-success'>Create Your Profile</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Let's get some information to make your

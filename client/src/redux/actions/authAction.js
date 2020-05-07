@@ -30,7 +30,7 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
-export const signUp = ({ email, password }) => async (dispatch) => {
+export const signUp = ({ email, password }, callback) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
