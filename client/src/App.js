@@ -6,6 +6,7 @@ import SignIn from './components/auth/SignIn';
 import Alert from './components/layout/Alert';
 import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
+import Dashboard from './components/dashboard/Dashboard';
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -34,6 +35,7 @@ const App = () => {
             <Route exact path='/signin' component={SignIn} />
             <Route exact path='/create-profile' component={CreateProfile} />
             <Route exact path='/edit-profile' component={EditProfile} />
+            <Route exact path='/dashboard' component={Dashboard} />
           </Switch>
         </Fragment>
       </Router>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAlert } from '../../redux/actions/alertAction';
 import { signUp } from '../../redux/actions/authAction';
@@ -22,9 +22,13 @@ const SignUp = ({ setAlert, signUp, isAuthenticated, history }) => {
     if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      signUp(email, password, history);
+      signUp(email, password);
     }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to='/dasboard' />;
+  }
 
   return (
     <div className='container'>
@@ -85,6 +89,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { signUp, setAlert })(
-  withRouter(SignUp)
-);
+export default connect(mapStateToProps, { signUp, setAlert })(SignUp);

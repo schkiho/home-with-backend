@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { signIn } from '../../redux/actions/authAction';
 
-const SignIn = ({ signIn, isAuthenticated, history }) => {
+const SignIn = ({ signIn, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -17,8 +17,12 @@ const SignIn = ({ signIn, isAuthenticated, history }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    signIn(email, password, history);
+    signIn(email, password);
   };
+
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
+  }
 
   return (
     <div className='container'>
@@ -67,4 +71,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { signIn })(withRouter(SignIn));
+export default connect(mapStateToProps, { signIn })(SignIn);

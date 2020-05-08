@@ -47,7 +47,9 @@ export const signUp = (email, password, history) => async (dispatch) => {
       payload: res.data,
     });
 
-    history.push('/create-profile');
+    dispatch(loadUser());
+
+    // history.push('/create-profile');
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -77,7 +79,9 @@ export const signIn = (email, password, history) => async (dispatch) => {
       payload: res.data,
     });
 
-    history.push('/edit-profile');
+    dispatch(loadUser());
+
+    //history.push('/edit-profile');
   } catch (err) {
     const errors = err.response.data.errors;
 
