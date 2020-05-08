@@ -15,7 +15,7 @@ router.post(
     [
       check('firstName', 'Firstname is required').not().isEmpty(),
       check('lastName', 'Lastname is required').not().isEmpty(),
-      check('phone', 'Phonenumber is required').not().isEmpty(),
+      check('phoneNumber', 'Phone Number is required').not().isEmpty(),
       check('salary', 'Salary is required').not().isEmpty(),
     ],
   ],
@@ -25,13 +25,13 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, phone, salary } = req.body;
+    const { firstName, lastName, phoneNumber, salary } = req.body;
 
     const profileFields = {};
     profileFields.user = req.user.id;
     if (firstName) profileFields.firstName = firstName;
     if (lastName) profileFields.lastName = lastName;
-    if (phone) profileFields.phone = phone;
+    if (phoneNumber) profileFields.phoneNumber = phoneNumber;
     if (salary) profileFields.salary = salary;
 
     try {

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAlert } from '../../redux/actions/alertAction';
 import { signUp } from '../../redux/actions/authAction';
 import PropTypes from 'prop-types';
 
-const SignUp = ({ setAlert, signUp, isAuthenticated }) => {
+const SignUp = ({ setAlert, signUp, isAuthenticated, history }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -22,7 +22,7 @@ const SignUp = ({ setAlert, signUp, isAuthenticated }) => {
     if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      signUp({ email, password });
+      signUp(email, password, history);
     }
   };
 
@@ -85,4 +85,6 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { signUp, setAlert })(SignUp);
+export default connect(mapStateToProps, { signUp, setAlert })(
+  withRouter(SignUp)
+);

@@ -30,7 +30,7 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
-export const signUp = ({ email, password }, callback) => async (dispatch) => {
+export const signUp = (email, password, history) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -46,6 +46,8 @@ export const signUp = ({ email, password }, callback) => async (dispatch) => {
       type: SIGNUP_SUCCESS,
       payload: res.data,
     });
+
+    history.push('/create-profile');
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -58,7 +60,7 @@ export const signUp = ({ email, password }, callback) => async (dispatch) => {
   }
 };
 
-export const signIn = (email, password) => async (dispatch) => {
+export const signIn = (email, password, history) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -74,6 +76,8 @@ export const signIn = (email, password) => async (dispatch) => {
       type: SIGNIN_SUCCESS,
       payload: res.data,
     });
+
+    history.push('/edit-profile');
   } catch (err) {
     const errors = err.response.data.errors;
 

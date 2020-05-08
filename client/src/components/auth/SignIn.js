@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { signIn } from '../../redux/actions/authAction';
 
-const SignIn = ({ signIn, isAuthenticated }) => {
+const SignIn = ({ signIn, isAuthenticated, history }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -17,7 +17,7 @@ const SignIn = ({ signIn, isAuthenticated }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    signIn(email, password);
+    signIn(email, password, history);
   };
 
   return (
@@ -67,4 +67,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { signIn })(SignIn);
+export default connect(mapStateToProps, { signIn })(withRouter(SignIn));
