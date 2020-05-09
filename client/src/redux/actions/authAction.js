@@ -32,7 +32,7 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
-export const signUp = (email, password, history) => async (dispatch) => {
+export const signUp = (email, password) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -50,8 +50,6 @@ export const signUp = (email, password, history) => async (dispatch) => {
     });
 
     dispatch(loadUser());
-
-    // history.push('/create-profile');
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -64,7 +62,7 @@ export const signUp = (email, password, history) => async (dispatch) => {
   }
 };
 
-export const signIn = (email, password, history) => async (dispatch) => {
+export const signIn = (email, password) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -82,8 +80,6 @@ export const signIn = (email, password, history) => async (dispatch) => {
     });
 
     dispatch(loadUser());
-
-    //history.push('/edit-profile');
   } catch (err) {
     const errors = err.response.data.errors;
 
