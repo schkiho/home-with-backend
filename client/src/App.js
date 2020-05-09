@@ -7,6 +7,7 @@ import Alert from './components/layout/Alert';
 import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
 import Dashboard from './components/dashboard/Dashboard';
+import Navbar from './components/layout/Navbar';
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -28,6 +29,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
+          <Navbar />
           <Alert />
           <Switch>
             <Route exact path='/' component={Landing} />

@@ -7,6 +7,8 @@ import {
   AUTH_ERROR,
   SIGNIN_SUCCESS,
   SIGNIN_FAIL,
+  LOGOUT,
+  CLEAR_PROFILE,
 } from './actionTypes';
 import setAuthToken from '../../utils/setAuthToken';
 
@@ -92,4 +94,9 @@ export const signIn = (email, password, history) => async (dispatch) => {
       type: SIGNIN_FAIL,
     });
   }
+};
+
+export const logout = () => (dispatch) => {
+  dispatch({ type: CLEAR_PROFILE });
+  dispatch({ type: LOGOUT });
 };

@@ -27,7 +27,7 @@ const SignUp = ({ setAlert, signUp, isAuthenticated, history }) => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to='/dasboard' />;
+    return <Redirect to='/create-profile' />;
   }
 
   return (

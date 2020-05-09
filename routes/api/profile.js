@@ -2,11 +2,25 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
-const request = require('request');
-const config = require('config');
 
 const Profile = require('../../models/Profile');
-const User = require('../../models/User');
+
+router.get('/me', auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({
+      user: req.user.id,
+    }).populate('user', ['email']);
+
+    if (!profile) {
+      return res.status(400).json({ msg: 'There is no profile for this user' });
+    }
+
+    res.status(200).json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 router.post(
   '/',
@@ -36,6 +50,17 @@ router.post(
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
+      if (profile) {
+        // UPdate
+        profile = await Profile.findOneAndUpdate(
+          { user: req.user.id },
+          { $set: profileFields },
+          { new: true }
+        );
+        return res.json(profile);
+      }
+
+      // Create
       profile = new Profile(profileFields);
 
       await profile.save();
