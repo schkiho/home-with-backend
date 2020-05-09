@@ -62,8 +62,10 @@ const CreateProfile = ({ createProfile, history }) => {
         </div>
         <div className='form-groupe form-wrapper my-5'>
           <div className='radio-form'>
-            <h4 id='form-title'>Select the Range of your monthly Income</h4>
-            <div id='debt-amount-slider'>
+            <h4 className='form-title'>
+              Select the Range of your monthly Income
+            </h4>
+            <div className='salary-slider'>
               <input
                 type='radio'
                 name='salary'
@@ -73,7 +75,7 @@ const CreateProfile = ({ createProfile, history }) => {
                 onChange={(e) => onChange(e)}
                 required
               />
-              <label htmlFor='1' data-debt-amount='< €1K'></label>
+              <label htmlFor='1' data-salary='< €1K'></label>
               <input
                 type='radio'
                 name='salary'
@@ -83,7 +85,7 @@ const CreateProfile = ({ createProfile, history }) => {
                 onChange={(e) => onChange(e)}
                 required
               />
-              <label htmlFor='2' data-debt-amount='€1K-€2K'></label>
+              <label htmlFor='2' data-salary='€1K-€2K'></label>
               <input
                 type='radio'
                 name='salary'
@@ -93,7 +95,7 @@ const CreateProfile = ({ createProfile, history }) => {
                 onChange={(e) => onChange(e)}
                 required
               />
-              <label htmlFor='3' data-debt-amount='€2K-€3K'></label>
+              <label htmlFor='3' data-salary='€2K-€3K'></label>
               <input
                 type='radio'
                 name='salary'
@@ -103,7 +105,7 @@ const CreateProfile = ({ createProfile, history }) => {
                 onChange={(e) => onChange(e)}
                 required
               />
-              <label htmlFor='4' data-debt-amount='€3K-€4K'></label>
+              <label htmlFor='4' data-salary='€3K-€4K'></label>
               <input
                 type='radio'
                 name='salary'
@@ -113,8 +115,8 @@ const CreateProfile = ({ createProfile, history }) => {
                 onChange={(e) => onChange(e)}
                 required
               />
-              <label htmlFor='5' data-debt-amount='€4K+'></label>
-              <div id='debt-amount-pos'></div>
+              <label htmlFor='5' data-salary='€4K+'></label>
+              <div id='salary-pos'></div>
             </div>
           </div>
         </div>

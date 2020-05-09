@@ -74,12 +74,12 @@ $number-of-options: 5;
   .radio-form {
     width: 90%;
     max-width: 500px;
-    #form-title {
+    .form-title {
       margin-top: 0;
       font-weight: 400;
       text-align: center;
     }
-    #debt-amount-slider {
+    .salary-slider {
       display: flex;
       flex-direction: row;
       align-content: stretch;
@@ -112,7 +112,7 @@ $number-of-options: 5;
         height: 100%;
         user-select: none;
         &::before {
-          content: attr(data-debt-amount);
+          content: attr(data-salary);
           position: absolute;
           left: 50%;
           padding-top: 10px;
@@ -156,17 +156,17 @@ $number-of-options: 5;
             border-width: 4px;
             transform: translate(-50%, -50%) scale(0.75);
           }
-          ~ #debt-amount-pos {
+          ~ #salary-pos {
             opacity: 1;
           }
           @for $i from 1 through $number-of-options {
-            &:nth-child(#{$i * 2 - 1}) ~ #debt-amount-pos {
+            &:nth-child(#{$i * 2 - 1}) ~ #salary-pos {
               left: #{($i * 20%) - 10%};
             }
           }
         }
       }
-      #debt-amount-pos {
+      #salary-pos {
         display: block;
         position: absolute;
         top: 50%;
@@ -182,7 +182,7 @@ $number-of-options: 5;
       }
     }
     &:valid {
-      #debt-amount-slider {
+      #salary-slider {
         input {
           + label::before {
             transform: translate(-50%, 45px) scale(0.9);
@@ -320,6 +320,25 @@ input[type='radio']:checked + label span.radio::after {
   opacity: 0.9;
   background: var(--light-color);
   color: #333;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--light-color);
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+
+.dash-buttons link {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.2rem;
 }
 
 .btn-primary,
