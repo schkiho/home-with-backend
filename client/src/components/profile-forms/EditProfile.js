@@ -31,7 +31,14 @@ const EditProfile = ({
       phoneNumber: loading || !profile.phoneNumber ? '' : profile.phoneNumber,
       salary: loading || !profile.salary ? '' : profile.salary,
     });
-  }, [loading, getCurrentProfile]);
+  }, [
+    loading,
+    getCurrentProfile,
+    profile.firstName,
+    profile.lastName,
+    profile.phoneNumber,
+    profile.salary,
+  ]);
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });

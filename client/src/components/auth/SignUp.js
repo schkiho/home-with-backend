@@ -5,7 +5,7 @@ import { setAlert } from '../../redux/actions/alertAction';
 import { signUp } from '../../redux/actions/authAction';
 import PropTypes from 'prop-types';
 
-const SignUp = ({ setAlert, signUp, isAuthenticated, history }) => {
+const SignUp = ({ setAlert, signUp, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
