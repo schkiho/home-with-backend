@@ -36,22 +36,21 @@ const Dashboard = ({
               Profile
             </Link>
           </div>
-
-          <div className='card my-5'>
+          <div className='card my-2'>
             <div className='card-body'>
               <h5 className='card-title'>Profile Details</h5>
               <p className='card-text'>
-                Here a quick overview of your profile for changes klick Edit
-                Profile
+                Here a quick overview of your profile for changes Edit Profile
               </p>
             </div>
             <DashboardTable profile={profile} />
             <div className='card-body'>
-              <a href='#' className='card-link'>
-                Card link
-              </a>
-              <a href='#' className='card-link'>
-                Another link
+              <h5 className='text-center'>If your details correct</h5>
+              <a
+                href='https://www.home.ht/en/housing/'
+                className='btn btn-success btn-block'
+              >
+                Your new home
               </a>
             </div>
           </div>
