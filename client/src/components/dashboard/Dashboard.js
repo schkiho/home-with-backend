@@ -25,12 +25,19 @@ const Dashboard = ({
     setTimeout(() => setStepNumber(3), 1000);
   }, []);
 
+  let calculatedPercentage = Math.round(
+    (100 * (stepNumber + 1)) / [1, 1, 1, 1].reduce((a, b) => a + b)
+  );
+
   return profile === null && loading ? (
     <Spinner />
   ) : (
     <div className='container'>
       {profile ? (
         <Fragment>
+          <p className='lead' style={{ textAlign: 'center' }}>
+            You have {calculatedPercentage} % finished
+          </p>
           <ProgressBar
             stepNumber={stepNumber}
             steps={[1, 1, 1]}

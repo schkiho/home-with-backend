@@ -17,6 +17,10 @@ const SignUp = ({ setAlert, signUp, isAuthenticated }) => {
 
   const { email, password, password2 } = formData;
 
+  let calculatedPercentage = Math.round(
+    (100 * (stepNumber + 1)) / [1, 1, 1, 1].reduce((a, b) => a + b)
+  );
+
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -35,6 +39,9 @@ const SignUp = ({ setAlert, signUp, isAuthenticated }) => {
 
   return (
     <div className='container'>
+      <p className='lead' style={{ textAlign: 'center' }}>
+        You have {calculatedPercentage} % finished
+      </p>
       <ProgressBar
         stepNumber={stepNumber}
         steps={[1, 1, 1]}

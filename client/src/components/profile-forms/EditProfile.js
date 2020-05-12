@@ -47,6 +47,10 @@ const EditProfile = ({
     setTimeout(() => setStepNumber(2), 1000);
   }, []);
 
+  let calculatedPercentage = Math.round(
+    (100 * (stepNumber + 1)) / [1, 1, 1, 1].reduce((a, b) => a + b)
+  );
+
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -59,6 +63,9 @@ const EditProfile = ({
 
   return (
     <div className='container'>
+      <p className='lead' style={{ textAlign: 'center' }}>
+        You have {calculatedPercentage} % finished
+      </p>
       <ProgressBar
         stepNumber={stepNumber}
         steps={[1, 1, 1]}
