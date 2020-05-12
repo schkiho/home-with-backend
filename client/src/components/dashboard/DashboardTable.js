@@ -20,7 +20,7 @@ const DashboardTable = ({ profile }) => {
         </tr>
         <tr>
           <td>Phone Number</td>
-          <td>{phoneNumber}</td>
+          <td>+{phoneNumber}</td>
         </tr>
         <tr>
           <td>Range of Income</td>

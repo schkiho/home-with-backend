@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import ProgressBar from 'react-dennis-progressbar';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -40,6 +41,12 @@ const EditProfile = ({
     profile.salary,
   ]);
 
+  const [stepNumber, setStepNumber] = useState(1);
+
+  useEffect(() => {
+    setTimeout(() => setStepNumber(2), 1000);
+  }, []);
+
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -51,7 +58,21 @@ const EditProfile = ({
   const { firstName, lastName, phoneNumber, salary } = formData;
 
   return (
-    <div className='container create-profile-container'>
+    <div className='container'>
+      <ProgressBar
+        stepNumber={stepNumber}
+        steps={[1, 1, 1]}
+        bullets={true}
+        bulletColor={{
+          active: '#28a745',
+          inactive: '#c4c4c4',
+        }}
+        lineColor={{
+          active: '#28a745',
+          inactive: '#c4c4c4',
+        }}
+        lineHeight={8}
+      />
       <h1 className='large text-success'>Edit Your Profile</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Please check your details

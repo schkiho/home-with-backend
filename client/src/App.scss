@@ -13,9 +13,6 @@
   padding: 0 2rem;
   margin-top: 4rem;
   margin-bottom: 3rem;
-  .create-profile-container {
-    height: 100%;
-  }
 }
 
 .navbar {
@@ -40,6 +37,15 @@
   position: relative;
   background: url('./img/home-bg-image.jpg') no-repeat center center/cover;
   height: 100vh;
+}
+
+/* Progressbar */
+.progress-container .progress-line-container .progress-line {
+  transition: all 2s linear 0s;
+}
+
+.progress-container .progress-bullet-container .progress-bullet {
+  transition: all 2s linear 2s;
 }
 
 .x-large {

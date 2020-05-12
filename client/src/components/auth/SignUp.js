@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAlert } from '../../redux/actions/alertAction';
 import { signUp } from '../../redux/actions/authAction';
+import ProgressBar from 'react-dennis-progressbar';
 import PropTypes from 'prop-types';
 
 const SignUp = ({ setAlert, signUp, isAuthenticated }) => {
@@ -11,6 +12,8 @@ const SignUp = ({ setAlert, signUp, isAuthenticated }) => {
     password: '',
     password2: '',
   });
+
+  const [stepNumber] = useState(0);
 
   const { email, password, password2 } = formData;
 
@@ -32,6 +35,20 @@ const SignUp = ({ setAlert, signUp, isAuthenticated }) => {
 
   return (
     <div className='container'>
+      <ProgressBar
+        stepNumber={stepNumber}
+        steps={[1, 1, 1]}
+        bullets={true}
+        bulletColor={{
+          active: '#28a745',
+          inactive: '#c4c4c4',
+        }}
+        lineColor={{
+          active: '#28a745',
+          inactive: '#c4c4c4',
+        }}
+        lineHeight={8}
+      />
       <h1 className='large text-success'>Sign Up</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Create Your Account

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import ProgressBar from 'react-dennis-progressbar';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../redux/actions/profileAction';
@@ -13,6 +14,12 @@ const CreateProfile = ({ createProfile, history }) => {
     phoneNumber: '',
     salary: '',
   });
+
+  const [stepNumber, setStepNumber] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => setStepNumber(1), 1000);
+  }, []);
 
   const { firstName, lastName, phoneNumber, salary } = formData;
 
@@ -26,6 +33,20 @@ const CreateProfile = ({ createProfile, history }) => {
 
   return (
     <div className='container create-profile-container'>
+      <ProgressBar
+        stepNumber={stepNumber}
+        steps={[1, 1, 1]}
+        bullets={true}
+        bulletColor={{
+          active: '#28a745',
+          inactive: '#c4c4c4',
+        }}
+        lineColor={{
+          active: '#28a745',
+          inactive: '#c4c4c4',
+        }}
+        lineHeight={8}
+      />
       <h1 className='large text-success'>Create Your Profile</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Let's get some information to finish your
