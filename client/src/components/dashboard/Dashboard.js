@@ -46,48 +46,43 @@ const Dashboard = ({
             lineHeight={8}
           />
           <h1 className='large text-success'>Dashboard</h1>
-
-          <Fragment>
-            <p className='lead'>
-              <i className='fas fa-user' /> Welcome {profile.firstName}{' '}
-              {profile.lastName}
-            </p>
-            <div className='dash-buttons'>
-              <Link to='/edit-profile' className='btn btn-light'>
-                <i className='fas fa-user-circle text-success mr-1 '></i> Edit
-                Profile
-              </Link>
+          <p className='lead'>
+            <i className='fas fa-user' /> Welcome {profile.firstName}{' '}
+            {profile.lastName}
+          </p>
+          <div className='dash-buttons'>
+            <Link to='/edit-profile' className='btn btn-light'>
+              <i className='fas fa-user-circle text-success mr-1 '></i> Edit
+              Profile
+            </Link>
+          </div>
+          <div className='card my-2'>
+            <div className='card-body'>
+              <h5 className='card-title'>Profile Details</h5>
+              <p className='card-text'>
+                Here a quick overview of your profile for changes Edit Profile
+              </p>
             </div>
-            <div className='card my-2'>
-              <div className='card-body'>
-                <h5 className='card-title'>Profile Details</h5>
-                <p className='card-text'>
-                  Here a quick overview of your profile for changes Edit Profile
-                </p>
-              </div>
-              <DashboardTable profile={profile} />
-              <div className='card-body'>
-                <h5 className='text-center'>If your details correct</h5>
-                <a
-                  href='https://www.home.ht/en/housing/'
-                  className='btn btn-success btn-block'
-                >
-                  Your new home
-                </a>
-              </div>
-            </div>
-            <div>
-              <button
-                className='btn btn-danger'
-                onClick={() => deleteAccount()}
+            <DashboardTable profile={profile} />
+            <div className='card-body'>
+              <h5 className='text-center'>If your details correct</h5>
+              <a
+                href='https://www.home.ht/en/housing/'
+                className='btn btn-success btn-block'
               >
-                <i className='fas fa-user'></i> Delete My Account
-              </button>
+                Your new home
+              </a>
             </div>
-          </Fragment>
+          </div>
+          <div>
+            <button className='btn btn-danger' onClick={() => deleteAccount()}>
+              <i className='fas fa-user'></i> Delete My Account
+            </button>
+          </div>
         </Fragment>
       ) : (
         <Fragment>
+          <h1 className='large text-success'>Dashboard</h1>
           <p>You have not yet setup a profile, please add some info</p>
           <Link to='/create-profile' className='btn btn-danger my-2'>
             Create Profile
