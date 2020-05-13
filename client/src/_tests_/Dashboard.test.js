@@ -26,9 +26,12 @@ describe('Dashboard Component', () => {
   describe('Checking PropTypes', () => {
     it('It should not throw a warning', () => {
       const expectedProps = {
-        getCurrentProfile: 'Test Function',
-        deleteAccount: 'Test Function',
-        profile: {},
+        getCurrentProfile: () => {},
+        deleteAccount: () => {},
+        profile: {
+          profile: {},
+          loading: false,
+        },
       };
       const propsError = checkProps(Dashboard, expectedProps);
       expect(propsError).toBeUndefined();

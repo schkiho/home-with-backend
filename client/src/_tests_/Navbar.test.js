@@ -26,10 +26,10 @@ describe('Navbar Component', () => {
   describe('Checking PropTypes', () => {
     it('It should not throw a warning', () => {
       const expectedProps = {
-        logout: 'Test Function',
+        logout: () => {},
         auth: {
           isAuthenticated: true,
-          loading: 'test',
+          loading: false,
         },
       };
       const propsError = checkProps(Navbar, expectedProps);

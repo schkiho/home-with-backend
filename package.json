@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm test --prefix client",
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
@@ -24,7 +24,6 @@
     "react-router": "^5.2.0"
   },
   "devDependencies": {
-    "check-prop-types": "^1.1.2",
     "concurrently": "^5.2.0",
     "nodemon": "^2.0.3"
   }

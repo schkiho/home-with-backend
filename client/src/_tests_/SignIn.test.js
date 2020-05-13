@@ -26,7 +26,7 @@ describe('SignIn Component', () => {
   describe('Checking PropTypes', () => {
     it('It should not throw a warning', () => {
       const expectedProps = {
-        signIn: 'Test Function',
+        signIn: () => {},
         isAuthenticated: true,
       };
       const propsError = checkProps(SignIn, expectedProps);
