@@ -36,7 +36,10 @@ const CreateProfile = ({ createProfile, history }) => {
   };
 
   return (
-    <div className='container create-profile-container'>
+    <div
+      className='container create-profile-container'
+      data-test='createprofileComponent'
+    >
       <p className='lead' style={{ textAlign: 'center' }}>
         You have {calculatedPercentage} % finished
       </p>

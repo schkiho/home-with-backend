@@ -25,7 +25,7 @@ const SignIn = ({ signIn, isAuthenticated }) => {
   }
 
   return (
-    <div className='container'>
+    <div className='container' data-test='signinComponent'>
       <h1 className='large text-success'>Sign In</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Sign Into Your Account

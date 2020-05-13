@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../redux/actions/authAction';
@@ -37,7 +37,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     </ul>
   );
   return (
-    <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
+    <nav
+      className='navbar navbar-expand-lg navbar-dark bg-dark'
+      data-test='navbarComponent'
+    >
       <h1>
         <Link className='navbar-brand' to='/'>
           Home
@@ -73,4 +76,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logout })(withRouter(Navbar));
+export default connect(mapStateToProps, { logout })(Navbar);

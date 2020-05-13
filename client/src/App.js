@@ -5,7 +5,6 @@ import Landing from './components/layout/Landing';
 import Routes from './components/routing/Routes';
 
 // Redux
-import { Provider } from 'react-redux';
 import store from './redux/store';
 import { loadUser } from './redux/actions/authAction';
 import setAuthToken from './utils/setAuthToken';
@@ -22,17 +21,15 @@ const App = () => {
   });
 
   return (
-    <Provider store={store}>
-      <Router>
-        <Fragment>
-          <Navbar />
-          <Switch>
-            <Route exact path='/' component={Landing} />
-            <Route component={Routes} />
-          </Switch>
-        </Fragment>
-      </Router>
-    </Provider>
+    <Router>
+      <Fragment>
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Landing} />
+          <Route component={Routes} />
+        </Switch>
+      </Fragment>
+    </Router>
   );
 };
 

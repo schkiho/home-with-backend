@@ -30,9 +30,9 @@ const Dashboard = ({
   );
 
   return profile === null && loading ? (
-    <Spinner />
+    <Spinner data-test='dashboardComponent' />
   ) : (
-    <div className='container'>
+    <div className='container' data-test='dashboardComponent'>
       {profile ? (
         <Fragment>
           <p className='lead' style={{ textAlign: 'center' }}>
@@ -107,7 +107,6 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     profile: state.profile,
   };

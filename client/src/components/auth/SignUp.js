@@ -38,7 +38,7 @@ const SignUp = ({ setAlert, signUp, isAuthenticated }) => {
   }
 
   return (
-    <div className='container'>
+    <div className='container' data-test='signupComponent'>
       <p className='lead' style={{ textAlign: 'center' }}>
         You have {calculatedPercentage} % finished
       </p>

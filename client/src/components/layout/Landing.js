@@ -4,10 +4,15 @@ import homeLogo from '../../img/home-logo.png';
 
 const Landing = () => {
   return (
-    <section className='landing'>
+    <section className='landing' data-test='landingComponent'>
       <div className='container'>
         <div className='col-12 my-4'>
-          <img src={homeLogo} className='img-fluid home-logo' alt='logo' />
+          <img
+            src={homeLogo}
+            className='img-fluid home-logo'
+            alt='logo'
+            data-test='logo'
+          />
         </div>
         <div className='col-12'>
           <h1 className='large'>Welcome at Home</h1>
