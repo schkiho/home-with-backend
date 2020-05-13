@@ -3,7 +3,6 @@ import profileReducer from '../redux/reducers/profileReducer';
 import store from '../redux/store';
 
 let state = store.getState().profile;
-console.log(state);
 
 describe('Profile Reducer', () => {
   const payload = {
